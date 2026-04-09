@@ -1,7 +1,5 @@
 # Planetary-Redox-Evolution-Couples-Sulfur-Sourcing-to-Proteome-Desulfurization
 
-# Planetary Redox Evolution Couples Sulfur Sourcing to Proteome Desulfurization
-
 ## Repository Overview
 
 This repository contains the main computational workflow for the manuscript "Planetary Redox Evolution Couples Sulfur Sourcing to Proteome Desulfurization". The analysis integrates phylogenomics, machine learning, molecular dating, and reconciliations to investigate the evolutionary trajectory of sulfur-containing amino acids (SAAs) in prokaryotic proteomes.
