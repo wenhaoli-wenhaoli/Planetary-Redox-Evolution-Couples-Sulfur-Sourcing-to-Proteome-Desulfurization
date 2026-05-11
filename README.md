@@ -1,8 +1,8 @@
-# Planetary-Redox-Evolution-Couples-Sulfur-Sourcing-to-Proteome-Desulfurization
+# Proteome sulfur content records the co-evolution of life and Earth's redox state
 
 ## Repository Overview
 
-This repository contains the main computational workflow for the manuscript "Planetary Redox Evolution Couples Sulfur Sourcing to Proteome Desulfurization". The analysis integrates phylogenomics, machine learning, molecular dating, and reconciliations to investigate the evolutionary trajectory of sulfur-containing amino acids (SAAs) in prokaryotic proteomes.
+This repository contains the main computational workflow for the manuscript "Proteome sulfur content records the co-evolution of life and Earth's redox state". The analysis integrates phylogenomics, machine learning, molecular dating, and reconciliations to investigate the evolutionary trajectory of sulfur-containing amino acids (SAAs) in prokaryotic proteomes.
 
 ## Workflow Summary
 
@@ -67,12 +67,12 @@ GTDB r226 Genomes
 **Purpose:** Train machine learning models to predict proteomic SAA frequencies.
 
 **Key steps:**
-- Low-variance feature filtering
-- Feature selection via permutation importance (Random Forest, retain 95% cumulative importance)
-- Train and compare 5 regression models: LassoCV, RidgeCV, RandomForest, ExtraTrees, XGBoost
-- Robustness evaluation (random removal of 10-50% COG features)
-- SHAP analysis for model interpretability
-- Save best model for ancestral prediction
+- Low-variance feature filtering - Remove COGs with near-constant presence/absence
+- Feature selection via permutation importance (Random Forest) - Generate multiple feature sets at cumulative importance thresholds: 99%, 95%, 90%, 80%, 70%, 60%, 50%
+- Train and compare 5 regression models across all feature sets:  LassoCV, RidgeCV, RandomForest, ExtraTrees, XGBoost
+- Robustness evaluation (sparsity test) - Random removal of 10-50% COG features from the 90% feature set (best) with XGBoost (10 iterations per level)
+- SHAP analysis for model interpretability - Identify top contributing gene families
+- Save XGBoost model trained on 90% feature set for ancestral prediction
 
 ### 5. `5species-tree_inference.sh`
 
